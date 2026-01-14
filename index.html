@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Al-Arabia | Belajar Bahasa Arab Mudah & Menyenangkan</title>
+    <meta name="description"
+        content="Platform belajar Bahasa Arab interaktif untuk pemula. Belajar Hijaiyah, Kosakata, dan Percakapan.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png"
+        href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNk+A8AAQUBAScY42YAAAAASUVORK5CYII=">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#home" class="logo" onclick="handleNavigation()">
+                    <span>🕌</span> Al-Arabia
+                </a>
+                <div class="nav-links">
+                    <a class="nav-btn active" href="#home">Beranda</a>
+                    <a class="nav-btn" href="#hijaiyah">Huruf Hijaiyah</a>
+                    <a class="nav-btn" href="#vocab">Kosakata</a>
+                    <a class="nav-btn" href="#conversation">Percakapan</a>
+                    <a class="nav-btn" href="#story">Cerita</a>
+                    <a class="nav-btn" href="#quiz">Kuis</a>
+                </div>
+                <div class="actions" style="display:flex; gap:1rem; align-items:center;">
+                    <div id="xp-text" style="font-size:0.9rem; font-weight:600; color:var(--primary)">Level 1</div>
+                    <button id="mute-toggle" onclick="toggleMute()"
+                        style="border:none; background:none; cursor:pointer; font-size:1.2rem;"
+                        title="Mute/Unmute">🔊</button>
+                    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Dark Mode">
+                        <!-- Icon set by JS -->
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div id="landing-page"
+        style="position:fixed; top:0; left:0; width:100%; height:100%; background:var(--bg-color); z-index:2000; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:2rem; transition: transform 0.8s ease-in-out;">
+        <div
+            style="font-family:'Amiri', serif; font-size:4rem; color:var(--primary); margin-bottom:1rem; animation:fadeIn 1s ease-out;">
+            أَهْلًا وَسَهْلًا
+        </div>
+        <h1
+            style="font-size:2.5rem; margin-bottom:1rem; color:var(--text-primary); animation:fadeIn 1s ease-out 0.5s backwards;">
+            Selamat Datang di Al-Arabia
+        </h1>
+        <p
+            style="font-size:1.2rem; color:var(--text-secondary); margin-bottom:3rem; max-width:600px; animation:fadeIn 1s ease-out 1s backwards;">
+            Platform belajar Bahasa Arab interaktif untuk pemula.
+        </p>
+        <button onclick="enterApp()" class="cta-btn"
+            style="padding:1rem 3rem; font-size:1.5rem; animation:fadeIn 1s ease-out 1.5s backwards;">
+            Mulai Belajar 🚀
+        </button>
+    </div>
+
+    <main class="container">
+        <!-- Home Section -->
+        <section id="home" class="active fade-in">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Belajar Bahasa Arab <br>Menjadi Lebih Mudah</h1>
+                    <p>Mulai perjalananmu memahami Al-Qur'an dan bahasa Arab sehari-hari dengan metode interaktif, audio
+                        native, dan kuis yang menyenangkan.</p>
+                    <div style="display:flex; gap:1rem; flex-wrap:wrap;">
+                        <a href="#hijaiyah" onclick="location.hash='hijaiyah'" class="cta-btn">Mulai Belajar</a>
+                        <a href="#quiz" onclick="location.hash='quiz'" class="nav-btn"
+                            style="border:1px solid var(--border-color)">Coba Kuis</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="hero.png" alt="Ilustrasi Belajar Arab">
+                </div>
+            </div>
+
+            <div class="features-preview"
+                style="display:grid; grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); gap:2rem; margin-top:4rem;">
+                <div class="feature-card">
+                    <div class="feature-icon">🎮</div>
+                    <h3>Mini Game Seru</h3>
+                    <p>Uji kemampuanmu dengan kuis interaktif yang menyenangkan dan menantang.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔊</div>
+                    <h3>Audio Native</h3>
+                    <p>Dengarkan pengucapan asli untuk setiap huruf dan kosakata agar fasih.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📖</div>
+                    <h3>Cerita Bergambar</h3>
+                    <p>Belajar membaca dengan cerita pendek yang menarik dan mudah dipahami.</p>
+                </div>
+            </div>
+
+
+
+            <div class="progress-card" style="margin-top:4rem;">
+                <div class="progress-info">
+                    <h2>Progres Belajar Kamu</h2>
+                    <p>Terus tingkatkan skor XP-mu dengan menyelesaikan kuis!</p>
+                </div>
+                <div>
+                    <div>XP Level</div>
+                    <div class="progress-bar-container">
+                        <div id="xp-bar" class="progress-bar"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hijaiyah Section -->
+        <section id="hijaiyah">
+            <div style="text-align:center; margin-bottom:3rem;">
+                <h2 style="font-size:2.5rem; color:var(--primary)">Huruf Hijaiyah</h2>
+                <p>Klik kartu untuk mendengarkan cara pengucapannya</p>
+            </div>
+            <div id="hijaiyah-grid" class="grid-container">
+                <!-- Injected by JS -->
+            </div>
+        </section>
+
+        <!-- Vocabulary Section -->
+        <section id="vocab">
+            <div style="text-align:center; margin-bottom:3rem;">
+                <h2 style="font-size:2.5rem; color:var(--primary)">Kosakata Harian</h2>
+                <p>Perkaya perbendaharaan katamu (Mufradat)</p>
+            </div>
+            <div class="search-wrapper">
+                <input type="text" id="vocabSearch" placeholder="🔍 Cari kosakata (Arab / Indo / Cara Baca)...">
+            </div>
+            <div id="vocab-grid" class="grid-container">
+                <!-- Injected by JS -->
+            </div>
+        </section>
+
+        <!-- Conversation Section -->
+        <section id="conversation">
+            <div style="text-align:center; margin-bottom:3rem;">
+                <h2 style="font-size:2.5rem; color:var(--primary)">Percakapan</h2>
+                <p>Contoh dialog sederhana (Hiwar)</p>
+            </div>
+            <div id="conversation-list" style="max-width:800px; margin:0 auto; display:grid; gap:2rem;">
+                <!-- Injected by JS -->
+            </div>
+        </section>
+
+        <!-- Story Section -->
+        <section id="story">
+            <div style="text-align:center; margin-bottom:3rem;">
+                <h2 style="font-size:2.5rem; color:var(--primary)">Cerita Bergambar</h2>
+                <p>Belajar melalui cerita pendek yang menarik (Qishash)</p>
+            </div>
+            <div id="story-container"
+                style="max-width:800px; margin:0 auto; background:var(--surface-color); border-radius:1rem; box-shadow:var(--shadow-lg); overflow:hidden; position:relative; min-height:500px; display:flex; flex-direction:column;">
+                <!-- Slides injected by JS -->
+            </div>
+        </section>
+
+
+
+        <!-- Quiz Section -->
+        <section id="quiz">
+            <div style="text-align:center; margin-bottom:3rem;">
+                <h2 style="font-size:2.5rem; color:var(--primary)">Uji Kemampuan</h2>
+                <p>Jawab pertanyaan dan raih skor tertinggi!</p>
+            </div>
+            <div id="quiz-interface" class="quiz-container">
+                <!-- Injected by JS -->
+                <button onclick="startQuiz()" class="cta-btn">Mulai Kuis</button>
+            </div>
+        </section>
+    </main>
+
+    <div id="toast-container" class="toast-container"></div>
+    <div id="audio-status-indicator"></div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
